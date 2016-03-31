@@ -35,6 +35,15 @@ width: 1rem;
 }
 
 .dropdown {
+  display: none;
+  font-family: sans-serif;
+  width: 100%;
+  background: grey;
+  color: white;
+}
+
+.dropdown--active {
+  display: block;
   font-family: sans-serif;
   width: 100%;
   background: grey;
@@ -71,7 +80,7 @@ width: 1rem;
   border: 0;
   border-radius: .4rem;
   padding: 0.5rem;
-  margin-top: 0.5rem;
+  margin: 1rem;
   color: white;
   align-self: flex-end;
 }
