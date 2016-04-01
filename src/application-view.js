@@ -1,7 +1,6 @@
 'use strict';
 
-
-// import ApplicationView from 'application-view';
+import CreateFormView from 'create-form-view';
 import PuppyView from 'puppy-view';
 
 export default class App {
@@ -16,6 +15,7 @@ export default class App {
         this.renderForm();
       });
     });
+    const formView = new CreateFormView;
   }
   renderForm() {
     const dogForm = document.createElement(`div`);
