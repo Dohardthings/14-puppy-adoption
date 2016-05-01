@@ -11,13 +11,13 @@ export default class App {
       .then((response) => response.json())
       .then((info) => {
         info.forEach((puppy) => {
-          const generic = new PuppyView(puppy);
+          const generic = new PuppyView(puppy, this);
           const pupList = document.querySelector(`.puppy-list`);
           pupList.appendChild(generic.element);
         });
       });
 
-    this.formView = new CreateFormView(this.element.querySelector(`.top-nav`), this.application);
+    this.formView = new CreateFormView(this.element.querySelector(`.top-nav`), this);
   }
 
   addPuppyData(puppy) {
