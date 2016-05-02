@@ -9,7 +9,7 @@ export default class CreateFormView {
   }
 
   puppyAddToList() {
-    this.element.querySelector(`.dropdown-button`).addEventListener(`click`, (ev) => {
+    this.element.querySelector(`.dropdown-sub-container`).addEventListener(`submit`, (ev) => {
       ev.preventDefault();
 
       this.formData = {
