@@ -10,17 +10,33 @@ export default class App {
     fetch(`http://tiny-tn.herokuapp.com/collections/dm-puppies`)
       .then((response) => response.json())
       .then((info) => {
-        info.forEach((puppy) => {
-          const generic = new PuppyView(puppy, this);
-          const pupList = document.querySelector(`.puppy-list`);
-          pupList.appendChild(generic.element);
-        });
+        this.data = info;
+        this.render();
       });
 
     this.formView = new CreateFormView(this.element.querySelector(`.top-nav`), this);
   }
 
+  render() {
+    const pupList = this.element.querySelector(`.puppy-list`);
+
+    pupList.innerHTML = ``;
+
+    this.data.forEach((puppy) => {
+      const generic = new PuppyView(puppy, this);
+      pupList.appendChild(generic.element);
+    });
+  }
+
   addPuppyData(puppy) {
     this.data = [...this.data, puppy];
+
+    this.render();
+  }
+
+  removePuppyData(puppy) {
+    this.data = this.data.filter((x) => x !== puppy);
+
+    this.render();
   }
 }

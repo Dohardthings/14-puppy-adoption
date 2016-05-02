@@ -1,8 +1,9 @@
 'use strict';
 
 export default class PuppyView {
-  constructor(info) {
+  constructor(info, app) {
     this.info = info;
+    this.app = app;
     this.element = document.createElement(`div`);
     this.setupElement();
 
@@ -22,7 +23,7 @@ export default class PuppyView {
       <img src="" alt="" class="puppy-img">
       </div>
       </div>
-      <div id="puppyForm" class="puppy-form">
+      <form id="puppyForm" class="puppy-form">
         <div class="puppy-input">
           <p class="puppy-input-heading">Name</p>
           <input type= "text" class="puppy-name" value=""></input>
@@ -44,7 +45,7 @@ export default class PuppyView {
         <button class="delete">Delete</button>
         <button class="update">Update</button>
         </div>
-      </div>`;
+      </form>`;
   }
 
   render() {
@@ -56,7 +57,7 @@ export default class PuppyView {
   }
 
   updatePuppy() {
-    this.element.querySelector(`.update`).addEventListener(`click`, (ev) => {
+    this.element.querySelector(`.puppy-form`).addEventListener(`submit`, (ev) => {
       ev.preventDefault();
       fetch(`http://tiny-tn.herokuapp.com/collections/dm-puppies/${this.info._id}`, {
         method: `PUT`,
@@ -90,6 +91,7 @@ export default class PuppyView {
       }).then((res) => res.json())
     .then(() => {
       alert(`Item deleted`);
+      this.app.removePuppyData(this.info);
     });
     });
   }
