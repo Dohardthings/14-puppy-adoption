@@ -34,9 +34,11 @@ export default class CreateFormView {
       this.element.querySelector(`.dropdown-profile`).value = ``;
 
       this.application.addPuppyData(data);
+      const dropDown = this.element.querySelector(`.dropdown`);
+      dropDown.classList.toggle(`dropdown--active`);
     });
-  });
-}
+    });
+  }
 
   togglePuppyForm() {
     const dropDown = this.element.querySelector(`.dropdown`);
