@@ -118,6 +118,7 @@ width: 1rem;
 
 .puppy-profile {
   display: flex;
+  justify-content: space-between;
   width: 60rem;
   background: lightgrey;
   margin: auto;
@@ -125,9 +126,17 @@ margin-top: 1rem;
   border: 1px solid darkgrey;
 }
 
+.puppy-pic-parent {
+  width: 28%;
+}
+
 .puppy-pic {
   width: 100%;
   margin: 1rem;
+}
+
+.puppy-img {
+  width: 100%;
 }
 
 .puppy-name {
@@ -157,8 +166,8 @@ margin-top: 1rem;
 .puppy-form {
   display: flex;
   flex-direction: column;
-  width: 74%;
-  margin-top: 1rem;
+  width: 64%;
+  margin: 1rem;
 }
 
 .puppy-input {
